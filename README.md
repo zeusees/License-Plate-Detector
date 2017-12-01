@@ -20,6 +20,6 @@ This is a project for license plate detection using mobilenet-ssd.
 
 简单的结合HyperLPR中的端到端模型，可以简单的实现车牌识别:
 
-![r1](/Users/yujinke/me/SSD_License_Plate_Detection/images/r2.png)
+![r2](images/r2.png)
 
-![r1](/Users/yujinke/me/SSD_License_Plate_Detection/images/r1.png)
+![r1](images/r1.png)
