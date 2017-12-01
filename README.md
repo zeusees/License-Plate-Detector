@@ -9,3 +9,4 @@ This is a project for license plate detection using mobilenet-ssd.
 ## Results
 ![](images/2.png)
 ![](images/4.png)
+![](images/5.png)
