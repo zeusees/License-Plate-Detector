@@ -7,5 +7,5 @@ This is a project for license plate detection using mobilenet-ssd.
 - Caffe-SSD or Opencv 3.3+
 
 ## Results
-![](images/2.jpg)
-![](images/4.jpg)
+![](images/2.png)
+![](images/4.png)
