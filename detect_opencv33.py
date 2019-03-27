@@ -1,7 +1,6 @@
 #coding=utf-8
 from cv2 import dnn
 import cv2
-import e2e
 
 inWidth = 720
 inHeight = 1024
