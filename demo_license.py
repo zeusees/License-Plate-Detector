@@ -9,7 +9,7 @@ import time;
 
 net_file= 'MobileNetSSD_test.prototxt'  
 #caffe_model='license.caffemodel' 
-caffe_model='lpd.caffemodel' 
+caffe_model='lpr.caffemodel' 
 
 test_dir = "license"
 
