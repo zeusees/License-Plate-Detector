@@ -6,7 +6,7 @@ This is a project for license plate detection using mobilenet-ssd.
 Add mssd512_voc.caffemodel with high accuracy and low complexity
 
 - Accuracy : 94.6%.
-- Speed : 180ms(multi-cores) on 720P images.(OpenCV 4.0)
+- Speed : 30ms(multi-cores) on 720P images.(OpenCV 4.0)
 
 ## Install
 - Caffe-SSD or Opencv 4.0
