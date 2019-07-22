@@ -17,7 +17,7 @@ This is a project for license plate detection using mobilenet-ssd.
 
 ![](images/4.png)
 
-![](images/5.png)
+![](images/demo1.jpg)
 
 ###  Recognition Demo
 
