@@ -1,12 +1,15 @@
 ## Mobilenet-SSD License Plate Detection & Recognition
 This is a project for license plate detection using mobilenet-ssd.
-- Accuracy : 86.7%.
-- Speed : 180ms(multi-cores) on 720P images.(OpenCV 3.3)
+
+### Last Update: add mssd512_voc.caffemodel with high accuracy and low complexity
+
+- Accuracy : 94.6%.
+- Speed : 180ms(multi-cores) on 720P images.(OpenCV 4.0)
 
 ## Install
-- Caffe-SSD or Opencv 3.3
+- Caffe-SSD or Opencv 4.0
 
-##### Note: 使用OpneCV 3.3 中的DNN模块 无需安装Caffe.
+##### Note: 使用OpneCV 4.0 中的DNN模块 无需安装Caffe.
 
 ## Results
 
