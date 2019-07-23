@@ -7,8 +7,8 @@ sys.path.insert(0, caffe_root + 'python')
 import caffe  
 import time; 
 
-net_file= 'MobileNetSSD_test.prototxt'  
-#caffe_model='license.caffemodel' 
+net_file= 'lpr.prototxt'  
+
 caffe_model='lpr.caffemodel' 
 
 test_dir = "license"

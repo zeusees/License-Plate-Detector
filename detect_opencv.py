@@ -4,13 +4,17 @@ import cv2
 
 inWidth = 720
 inHeight = 1024
+
+#inWidth = 1024
+#inHeight = 720  #for mssd512_voc.caffemodel 
+
 WHRatio = inWidth / float(inHeight)
 inScaleFactor = 0.007843
 meanVal = 127.5
 
 classNames = ('background',
               'plate')
-net = dnn.readNetFromCaffe("MobileNetSSD_test.prototxt","lpr.caffemodel")
+net = dnn.readNetFromCaffe("lpr.prototxt","lpr.caffemodel")
 
 import time
 
