@@ -1,82 +1,52 @@
-#coding=utf-8
-from cv2 import dnn
+import cv2 as cv
 import cv2
-
-inWidth = 720
-inHeight = 1024
-
-#inWidth = 1024
-#inHeight = 720  #for mssd512_voc.caffemodel 
-
-WHRatio = inWidth / float(inHeight)
-inScaleFactor = 0.007843
-meanVal = 127.5
-
-classNames = ('background',
-              'plate')
-net = dnn.readNetFromCaffe("lpr.prototxt","lpr.caffemodel")
-
-import time
-
-def detect(cpp):
-    frame = cv2.imread(cpp)
-    blob = dnn.blobFromImage(frame, inScaleFactor, (inWidth, inHeight), meanVal)
-    net.setInput(blob)
-    t0 = time.time()
-    detections = net.forward()
-    print time.time() - t0
-
-    cols = frame.shape[1]
-    rows = frame.shape[0]
-
-    if cols / float(rows) > WHRatio:
-        cropSize = (int(rows * WHRatio), rows)
-    else:
-        cropSize = (cols, int(cols / WHRatio))
-
-    y1 = (rows - cropSize[1]) / 2
-    y2 = y1 + cropSize[1]
-    x1 = (cols - cropSize[0]) / 2
-    x2 = x1 + cropSize[0]
-    frame = frame[y1:y2, x1:x2]
-
-    cols = frame.shape[1]
-    rows = frame.shape[0]
-
-    for i in range(detections.shape[2]):
-        confidence = detections[0, 0, i, 2]
-        if confidence > 0.2:
-            class_id = int(detections[0, 0, i, 1])
-
-            xLeftBottom = int(detections[0, 0, i, 3] * cols)
-            yLeftBottom = int(detections[0, 0, i, 4] * rows)
-            xRightTop = int(detections[0, 0, i, 5] * cols)
-            yRightTop = int(detections[0, 0, i, 6] * rows)
-
-            cv2.rectangle(frame, (xLeftBottom, yLeftBottom), (xRightTop, yRightTop),
-                          (0, 255, 255))
-
-            image_sub = frame[yLeftBottom:yRightTop,xLeftBottom:xRightTop]
-            print yLeftBottom,yRightTop, xLeftBottom,xRightTop
-            # e2e.recognizeOne(image_sub)
-
-            label = classNames[class_id] + ": " + str(confidence)
-            labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
-
-            # cv2.rectangle(frame, (xLeftBottom, yLeftBottom - labelSize[1]),
-            #               (xLeftBottom + labelSize[0], yLeftBottom + baseLine),
-            #               (255, 255, 255), 2,cv2.FILLED)
-            cv2.putText(frame, label, (xLeftBottom, yLeftBottom),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
-    return frame
+import numpy as np 
 import os
+from align import *
+
+cvNet = cv2.dnn.readNetFromCaffe("tmp/mssd512_voc.prototxt" , "tmp/mssd512_voc.caffemodel" )
+
+def detect(im):
+    #im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
+    to_draw = im.copy()
+    pixel_means=[0.406, 0.456, 0.485]
+    pixel_stds=[0.225, 0.224, 0.229]
+    pixel_scale=255.0
+    rows,cols,c  = im.shape
+    im_tensor = np.zeros((1, 3, im.shape[0], im.shape[1]))
+    im = im.astype(np.float32)
+    for i in range(3):
+      im_tensor[0, i, :, :] = (im[:, :, 2 - i]/pixel_scale - pixel_means[2 - i])/pixel_stds[2-i]
+    cvNet.setInput(im_tensor)
+    print(im_tensor.shape)
+    import time
+    cvOut = cvNet.forward()
+    for _ in range(1):
+        t0 =time.time()
+        cvOut = cvNet.forward()
+        print(time.time() -t0)
+    for detection in cvOut[0,0,:,:]:
+        score = float(detection[2])
+        if score > 0.6:
+            left =int( detection[3] * cols)
+            top =int( detection[4] * rows)
+            right = int(detection[5] * cols)
+            bottom = int(detection[6] * rows)
+            cropped = to_draw[top:bottom, left:right]
+            #cropped = align(cropped)
+            cv2.imshow("cropped" , cropped)
+            cv2.waitKey(0)
+            #cv2.rectangle(to_draw, (left,top) , (right,bottom) , (0,255,0) , 1)
+    cv2.imshow('image' , to_draw)
+    cv2.waitKey(0)
+    
+
+folderk = ""
+for filename in os.listdir(folderk):
+    path = os.path.join(folderk, filename)
+    if filename.lower().endswith(".bmp"):
+        image = cv2.imread(path)
+        #image  = align(image)
+        detect(image)
 
 
-
-test_dir = "test_folder"
-
-for f in os.listdir(test_dir):
-    if f.endswith(".jpg"):
-        cv2.imshow("test",detect(test_dir + "/" + f))
-        cv2.waitKey(0)
-        # break
