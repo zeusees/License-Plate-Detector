@@ -39,7 +39,7 @@
 
 ### 测试结果
 
-![](imgs/res.png)
+![](imgs/res.jpg)
 
 
 ### 参考
