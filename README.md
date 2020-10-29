@@ -43,7 +43,7 @@
 
 
 ### 参考
-- [Retinaface (Pytorch)] (https://github.com/biubug6/Pytorch_Retinaface)
-- [Pytorch_Retina_License_Plate] (https://github.com/gm19900510/Pytorch_Retina_License_Plate)
-- [CCPD] (https://github.com/detectRecog/CCPD)
+- [Retinaface (Pytorch)](https://github.com/biubug6/Pytorch_Retinaface)
+- [Pytorch_Retina_License_Plate](https://github.com/gm19900510/Pytorch_Retina_License_Plate)
+- [CCPD](https://github.com/detectRecog/CCPD)
 
