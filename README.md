@@ -8,7 +8,7 @@
 
 ### Pytorch模型测试
 ##### Clone and install
-1. git clone https://github.com/zeusees/Mobilenet-SSD-License-Plate-Detection.git
+1. git clone https://github.com/zeusees/License-Plate-Detector.git
 
 2. Pytorch version 1.2.0
 
