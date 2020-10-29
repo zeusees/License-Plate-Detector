@@ -14,6 +14,7 @@
 
 3. Python 3.6
 
+4. python detect.py
 
 
 ### 基于C++的NCCNN模型测试
