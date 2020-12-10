@@ -17,7 +17,7 @@
 4. python detect.py
 
 
-### 基于C++的NCCNN模型测试
+### 基于C++的NCNN模型测试
 ##### Source Code Compile
 1. cd Prj-ncnn
 
