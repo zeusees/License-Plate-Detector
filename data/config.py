@@ -2,7 +2,7 @@
 
 cfg_mnet = {
     'name': 'mobilenet0.25',
-    'min_sizes': [[12, 24], [48, 96], [192, 384]],
+    'min_sizes': [[24, 48], [96, 192], [384, 768]],
     'steps': [8, 16, 32],
     'variance': [0.1, 0.2],
     'clip': False,
