@@ -1,4 +1,4 @@
-# License Plate Detection with RetinaFace
+# License Plate Detection with Yolov5
 
 距离上次车牌检测模型更新已经过了一年多的时间，这段时间也有很多快速、准确的模型提出，我们利用单物体检测算法Retinaface进行了车牌检测模型的训练，通过测试，检测效果和适用性都更突出，支持的模型也更为丰富。
 
@@ -10,11 +10,11 @@
 ##### Clone and install
 1. git clone https://github.com/zeusees/License-Plate-Detector.git
 
-2. Pytorch version 1.2.0
+2. Pytorch version 1.7.0 
 
-3. Python 3.6
+3. Python 3.8
 
-4. python detect.py
+4. python detect_plate.py
 
 
 ### 基于C++的NCNN模型测试
@@ -44,7 +44,6 @@
 
 
 ### 参考
-- [Retinaface (Pytorch)](https://github.com/biubug6/Pytorch_Retinaface)
-- [Pytorch_Retina_License_Plate](https://github.com/gm19900510/Pytorch_Retina_License_Plate)
+- [yolov5-face](https://github.com/deepcam-cn/yolov5-face)
 - [CCPD](https://github.com/detectRecog/CCPD)
 
