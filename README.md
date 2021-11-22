@@ -1,6 +1,6 @@
 # License Plate Detection with Yolov5
 
-距离上次车牌检测模型更新已经过了一年多的时间，这段时间也有很多快速、准确的模型提出，我们利用单物体检测算法Retinaface进行了车牌检测模型的训练，通过测试，检测效果和适用性都更突出，支持的模型也更为丰富。
+距离上次车牌检测模型更新已经过了一年多的时间，这段时间也有很多快速、准确的模型提出，我们利用单物体检测算法Yolov5进行了车牌检测模型的训练，通过测试，检测效果和适用性都更突出，支持的模型也更为丰富。
 
 我们开源版本的检测算法经过了多个版本迭代，考虑到检测的效率跟准确率，原始版本逐步淘汰，从最初的基于LBP和Harr特征的车牌检测，感兴趣的小伙伴可以参考train-detector(https://github.com/openalpr/train-detector) 这个仓库；到后来逐步的采用深度学习的方式，包括基于mobilenet-ssd的算法进行检测(https://gitee.com/zeusees/Mobilenet-SSD-License-Plate-Detection) ，基于Retinaface框架进行检测（ https://gitee.com/zeusees/license-plate-detector ），后续请尽量采用新模型进行测试。
 
