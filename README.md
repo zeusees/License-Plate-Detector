@@ -44,6 +44,7 @@
 
 
 ### 参考
+- [基于OpenCV和ONNXRuntime工程](https://github.com/hpc203/yolov5-detect-car_plate_corner)
 - [yolov5-face](https://github.com/deepcam-cn/yolov5-face)
 - [CCPD](https://github.com/detectRecog/CCPD)
 
